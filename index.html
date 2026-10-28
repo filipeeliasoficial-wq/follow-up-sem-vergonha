@@ -14,6 +14,8 @@
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://www.youtube-nocookie.com">
+<link rel="preconnect" href="https://i.ytimg.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap">
 <style>
 body{margin:0}
@@ -181,6 +183,8 @@ a.navlink{display:none !important}
 .star-chip{width:48px;height:48px}
 @keyframes star-pulse{0%,100%{box-shadow:inset 0 1px 0 rgba(255,255,255,0.7),inset 0 -3px 0 rgba(138,93,15,0.28),0 0 0 6px rgba(240,190,60,0.16),0 18px 36px -16px rgba(138,93,15,0.6)}60%{box-shadow:inset 0 1px 0 rgba(255,255,255,0.7),inset 0 -3px 0 rgba(138,93,15,0.28),0 0 0 13px rgba(240,190,60,0),0 18px 36px -16px rgba(138,93,15,0.6)}}
 }
+@keyframes vsl-spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion: reduce){.vsl-spin{animation-duration:2.4s !important}}
 </style>
 <!-- Meta Pixel -->
 <script>
@@ -752,22 +756,67 @@ src="https://www.facebook.com/tr?id=846085805228019&ev=PageView&noscript=1"/></n
     });
   }
 
-  // VSL: capa com play; ao clicar abre o player do YouTube (vídeo FxISTWj7oVw)
+  // VSL: capa com play. O player do YouTube é carregado em segundo plano assim que a página
+  // termina de abrir (fica escondido atrás da capa), então ao clicar ele já está pronto.
+  var YT_ID = 'FxISTWj7oVw';
   var facade = document.getElementById('vsl-facade'), stage = document.getElementById('vsl-stage');
   if (facade && stage) {
-    facade.addEventListener('click', function (e) {
-      if (facade.getAttribute('data-fallback')) return; // se o player não abrir, o 2º clique abre o YouTube
-      e.preventDefault();
-      if (stage.querySelector('iframe')) return;
-      var fr = document.createElement('iframe');
-      fr.src = 'https://www.youtube-nocookie.com/embed/FxISTWj7oVw?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+    var fr = null, ready = false, wanted = false, revealed = false, hs = null, tmo = null, wait = null;
+    function send(obj) { try { fr.contentWindow.postMessage(JSON.stringify(obj), '*'); } catch (e) {} }
+    function showWait(txt) {
+      if (!wait) {
+        wait = document.createElement('span');
+        wait.style.cssText = 'position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:rgba(13,13,13,.55);color:#f0be3c;font-size:15px;font-weight:700;letter-spacing:.04em';
+        wait.innerHTML = '<span class="vsl-spin" style="width:46px;height:46px;border-radius:999px;border:5px solid rgba(240,190,60,.28);border-top-color:#f0be3c;animation:vsl-spin .8s linear infinite"></span><span class="vsl-wait-t"></span>';
+        facade.appendChild(wait);
+        var pl = facade.querySelector('.vsl-play'); if (pl) pl.style.visibility = 'hidden';
+      }
+      wait.querySelector('.vsl-wait-t').textContent = txt;
+    }
+    function reveal() {
+      if (revealed || !fr) return; revealed = true;
+      fr.style.opacity = '1'; fr.style.pointerEvents = 'auto';
+      facade.style.display = 'none';
+      send({ event: 'command', func: 'playVideo', args: '' });
+    }
+    function failed() {
+      if (fr && fr.parentNode) fr.parentNode.removeChild(fr);
+      fr = null; clearInterval(hs);
+      facade.setAttribute('data-fallback', '1');
+      if (wanted) showWait('Toque de novo para abrir no YouTube');
+    }
+    function onMsg(ev) {
+      if (!fr || ev.source !== fr.contentWindow || ready) return;
+      ready = true; clearInterval(hs); clearTimeout(tmo);
+      if (wanted) reveal();
+    }
+    function build() {
+      if (fr || facade.getAttribute('data-fallback')) return;
+      fr = document.createElement('iframe');
+      fr.src = 'https://www.youtube-nocookie.com/embed/' + YT_ID + '?rel=0&modestbranding=1&playsinline=1&enablejsapi=1';
       fr.title = 'Vídeo do Filipe Elias sobre o Follow-Up Sem Vergonha';
       fr.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
       fr.setAttribute('allowfullscreen', '');
-      fr.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:0;background:#000';
-      var t = setTimeout(function () { if (fr.parentNode) fr.parentNode.removeChild(fr); facade.setAttribute('data-fallback', '1'); }, 9000);
-      fr.addEventListener('load', function () { clearTimeout(t); facade.style.display = 'none'; });
+      fr.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:0;background:#000;opacity:0;pointer-events:none';
       stage.insertBefore(fr, facade);
+      window.addEventListener('message', onMsg);
+      hs = setInterval(function () { send({ event: 'listening', id: 'vsl', channel: 'widget' }); }, 300);
+      tmo = setTimeout(function () { if (!ready) failed(); }, 12000);
+    }
+    facade.addEventListener('click', function (e) {
+      if (facade.getAttribute('data-fallback')) return; // se o player não abrir, o toque abre o YouTube em outra aba
+      e.preventDefault();
+      wanted = true;
+      showWait('Carregando o vídeo…');
+      build();
+      if (ready) reveal();
+    });
+    // aquece o player depois que a página abriu, e também ao primeiro toque/mouse sobre a capa
+    var warm = function () { build(); };
+    facade.addEventListener('pointerenter', warm, { once: true });
+    facade.addEventListener('touchstart', warm, { once: true, passive: true });
+    window.addEventListener('load', function () {
+      if (window.requestIdleCallback) window.requestIdleCallback(warm, { timeout: 2500 }); else setTimeout(warm, 1500);
     });
   }
 })();
