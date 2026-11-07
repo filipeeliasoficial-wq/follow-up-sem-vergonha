@@ -227,6 +227,15 @@ a.navlink{display:none !important}
 a.bf-cta{display:inline-flex;align-items:center;justify-content:center;gap:12px;width:100%;box-sizing:border-box;min-height:72px;margin-top:8px;padding:12px 24px;background:linear-gradient(180deg,#f8d775 0%,#f0be3c 55%,#e1a620 100%);color:#0d0d0d;font:800 19px/1.15 'Inter',system-ui,sans-serif;letter-spacing:.02em;text-transform:uppercase;text-align:center;border-radius:16px;text-decoration:none;box-shadow:0 0 0 0 rgba(240,190,60,.5),0 12px 50px rgba(240,190,60,.4);animation:bf-ring 2.8s ease-out infinite}
 a.bf-cta:focus-visible,a.bf-sticky-b:focus-visible{outline:3px solid #ffffff;outline-offset:3px}
 @keyframes bf-ring{0%{box-shadow:0 0 0 0 rgba(240,190,60,.5),0 12px 50px rgba(240,190,60,.4)}70%,100%{box-shadow:0 0 0 16px rgba(240,190,60,0),0 12px 50px rgba(240,190,60,.4)}}
+.bf-bonus{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px 10px;font:700 16px/1.4 'Inter',system-ui,sans-serif;color:#ffffff;text-align:center;margin-top:4px}
+.bf-bonus .bf-tag{margin:0}
+@media (max-width:640px){.bf-bonus{flex-direction:column;gap:6px;font-size:16.5px}}
+@media (min-width:821px) and (max-height:1000px){
+#topo .hero-h1{font-size:clamp(34px,4.3vw,56px) !important}
+.bf-price{padding-top:36px;gap:8px}
+.bf-price-v{font-size:clamp(64px,7.6vw,92px)}
+.bf-price-top{display:none}
+}
 .bf-price-g{font:700 15px/1.3 'Inter',system-ui,sans-serif;color:#f0be3c}
 .bf-math{max-width:500px;font:500 13.5px/1.5 'Inter',system-ui,sans-serif;color:#9a9a9a}
 @media (max-width:640px){
@@ -336,6 +345,7 @@ src="https://www.facebook.com/tr?id=846085805228019&ev=PageView&noscript=1"/></n
 <div class="bf-price-v">R$ 67,90</div>
 <div class="bf-price-p">ou <strong>10x de R$ 6,79</strong> sem juros</div>
 <div class="bf-timer" data-bf-timer hidden role="timer"><span class="bf-timer-l">A oferta termina em</span><div class="bf-boxes"><div class="bf-box"><b data-bf-d>00</b><i>dias</i></div><div class="bf-box"><b data-bf-h>00</b><i>horas</i></div><div class="bf-box"><b data-bf-m>00</b><i>min</i></div><div class="bf-box"><b data-bf-s>00</b><i>seg</i></div></div></div>
+<div class="bf-bonus" data-bf-bonus hidden><span class="bf-tag">Só na Black Friday</span> <span data-bf-bonus-t></span></div>
 <a class="btn bf-btn bf-cta" target="_blank" rel="noopener" href="https://pay.hotmart.com/B107556026R?off=mhusitq9">Quero aproveitar a Black Friday <span aria-hidden="true">→</span></a>
 <div class="bf-price-g">Garantia de 7 dias</div>
 <p class="bf-math">Uma venda recuperada pode pagar o curso. Simulação: com um ticket de R$ 500, uma única venda equivale a mais de 7 vezes o valor investido. Não é promessa de resultado.</p>
@@ -666,7 +676,7 @@ src="https://www.facebook.com/tr?id=846085805228019&ev=PageView&noscript=1"/></n
 <li class="bf-li"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f0be3c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Como recuperar vendas perdidas<small>O que fazer quando o cliente pede o preço, recebe a proposta ou para de responder.</small></span></li>
 <li class="bf-li"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f0be3c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Como vender em diferentes canais<small>Retome negociações pelo WhatsApp, Instagram e outros canais.</small></span></li>
 <li class="bf-li"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f0be3c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Aula bônus com Sophia Kumagai<span class="bf-tag">Bônus</span><small>Posicionamento, conteúdo e Stories para gerar oportunidades de venda.</small></span></li>
-<li class="bf-li" data-bf-bonus hidden><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f0be3c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><span data-bf-bonus-t></span><span class="bf-tag">Só na Black Friday</span></span></li>
+<li class="bf-li" data-bf-bonus hidden><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f0be3c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><span data-bf-bonus-t></span><span class="bf-tag">Só na Black Friday</span><small>[PREENCHER: como o aluno será escolhido e quando o resultado será anunciado]</small></span></li>
 </ul>
 <div style="display: flex; flex-direction: column; align-items: center; gap: 6px">
 <div class="bf-from" data-bf-from hidden>De <s data-bf-from-v></s> por</div>
@@ -779,11 +789,11 @@ src="https://www.facebook.com/tr?id=846085805228019&ev=PageView&noscript=1"/></n
   // Deixe vazio ('') o que não for verdade na campanha.
   var BF = {
     // Preço cheio REAL (o que é ou será cobrado fora da campanha). Ex.: 'R$ 97,00'. Vazio = não mostra "De R$ X por".
-    fullPrice: '',
+    fullPrice: 'R$ 97,90',
     // Fim REAL da oferta, igual ao da oferta criada na Hotmart, com fuso de Brasília. Ex.: '2026-11-30T23:59:59-03:00'. Vazio = sem contador.
-    endsAt: '',
+    endsAt: '2026-11-30T23:59:59-03:00',
     // Bônus extra só da campanha, se existir. Ex.: 'Planilha da régua de follow-up'. Vazio = não mostra.
-    bonus: ''
+    bonus: 'Mentoria individual para 1 aluno escolhido'
   };
   (function () {
     function all(s) { return Array.prototype.slice.call(document.querySelectorAll(s)); }
