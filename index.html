@@ -10,7 +10,6 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.7a0e19e2.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.560d0e9b.png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.d3f2e85e.png">
-<link rel="preload" as="image" href="assets/vsl-capa-1280.95ee5710.webp" imagesrcset="assets/vsl-capa-720.3382fdec.webp 720w, assets/vsl-capa-960.86108c27.webp 960w, assets/vsl-capa-1280.95ee5710.webp 1280w" imagesizes="(min-width: 820px) 780px, calc(100vw - 34px)" fetchpriority="high">
 <link rel="preload" as="font" type="font/woff2" href="assets/sora.93f32213.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="assets/inter.f11d729b.woff2" crossorigin>
 <style>
@@ -35,9 +34,6 @@ html{scroll-behavior:smooth}
 .proof-item{padding:0;border-left:0}
 }
 .logo-link{display:inline-flex;align-items:center;min-height:44px;cursor:pointer;-webkit-tap-highlight-color:transparent}
-.vsl-play{transition:transform .15s ease}
-.vsl-facade:hover .vsl-play{transform:scale(1.07)}
-.vsl-facade:focus-visible{outline:3px solid #f0be3c;outline-offset:-3px}
 .hero-h1,.hero-sub,.final-lbl{text-wrap:balance}
 .hero-note-t{font-size:19.5px;line-height:1.5;font-weight:500;color:#e6e6e6;text-wrap:balance}
 .hero-note-t strong{display:inline-block;padding:0 9px;margin:0 1px;border-radius:7px;background:#f0be3c;color:#0d0d0d;font-weight:800;line-height:1.35}
@@ -62,10 +58,6 @@ a.navlink{display:none !important}
 .hero-pill{font-size:12px !important;padding:6px 12px !important;text-align:left !important}
 .hero-h1{font-size:24.5px !important;line-height:1.14 !important}
 .hero-sub{font-size:15.5px !important}
-.vsl{border-radius:16px !important;box-shadow:0 0 0 6px rgba(240,190,60,0.06),0 16px 40px rgba(240,190,60,0.16) !important}
-.vsl-tag{font-size:10.5px !important;padding:9px 12px !important}
-.vsl-play{width:66px !important;height:66px !important;box-shadow:0 0 0 7px rgba(240,190,60,0.28),0 10px 30px rgba(0,0,0,0.5) !important}
-.vsl-play svg{width:26px !important;height:26px !important}
 .hero-cta{width:100% !important;min-width:0 !important;max-width:420px !important;box-sizing:border-box !important;min-height:60px !important;padding:10px 14px !important;font-size:16px !important;text-align:center}
 .hero-price{font-size:14px !important;text-align:center}
 .proof{padding-top:16px !important;gap:6px !important;font-size:15px !important}
@@ -181,8 +173,6 @@ a.navlink{display:none !important}
 .star-chip{width:48px;height:48px}
 @keyframes star-pulse{0%,100%{box-shadow:inset 0 1px 0 rgba(255,255,255,0.7),inset 0 -3px 0 rgba(138,93,15,0.28),0 0 0 6px rgba(240,190,60,0.16),0 18px 36px -16px rgba(138,93,15,0.6)}60%{box-shadow:inset 0 1px 0 rgba(255,255,255,0.7),inset 0 -3px 0 rgba(138,93,15,0.28),0 0 0 13px rgba(240,190,60,0),0 18px 36px -16px rgba(138,93,15,0.6)}}
 }
-@keyframes vsl-spin{to{transform:rotate(360deg)}}
-@media (prefers-reduced-motion: reduce){.vsl-spin{animation-duration:2.4s !important}}
 </style>
 <style id="bf-style">
 /* ===== BLACK FRIDAY ===== */
@@ -286,11 +276,30 @@ a.bf-sticky-b{flex:none;display:inline-flex;align-items:center;justify-content:c
 
 /* seções mais curtas (menos rolagem) */
 @media (max-width:640px){
-div[style*="padding: 88px 24px"]{padding-top:56px !important;padding-bottom:56px !important}
-div[style*="padding: 96px 24px"]{padding-top:60px !important;padding-bottom:60px !important}
-div[style*="padding: 80px 24px"]{padding-top:52px !important;padding-bottom:52px !important}
-div[style*="padding: 72px 24px"]{padding-top:48px !important;padding-bottom:48px !important}
+div[style*="padding: 64px 24px"]{padding-top:44px !important;padding-bottom:44px !important}
+div[style*="padding: 56px 24px"]{padding-top:40px !important;padding-bottom:40px !important}
+div[style*="padding: 52px 24px"]{padding-top:36px !important;padding-bottom:36px !important}
 }
+</style>
+<style id="feat-style">
+.bf-feat{width:100%;max-width:780px;margin:6px 0 0;box-sizing:border-box;background:linear-gradient(180deg,rgba(240,190,60,.12),rgba(240,190,60,.04)),#151515;border:2px solid #f0be3c;border-radius:24px;padding:26px 26px 18px;display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center;box-shadow:0 0 0 8px rgba(240,190,60,.06),0 24px 70px rgba(240,190,60,.2)}
+.bf-feat-tag{display:inline-flex;align-items:center;gap:8px;font:800 12.5px/1 'Inter',system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#f0be3c}
+.bf-feat-big{margin:0;font:800 clamp(26px,4vw,44px)/1.08 'Sora',system-ui,sans-serif;letter-spacing:-.025em;color:#ffffff;text-wrap:balance}
+.bf-feat-big em{font-style:normal;color:#f0be3c}
+.bf-feat-img{width:100%;border-radius:16px;overflow:hidden;background:#1c1c1c;border:1px solid #2c2c2c}
+.bf-feat-img img{display:block;width:100%;height:auto}
+.bf-feat-fine{font:500 13px/1.45 'Inter',system-ui,sans-serif;color:#9a9a9a}
+.num-tile{min-width:0}
+@media (max-width:640px){
+.num-wrap{gap:12px !important;flex-wrap:nowrap !important}
+.num-tile{flex:1 1 0 !important;padding:16px 14px !important;gap:6px !important;border-radius:18px !important}
+.num-tile>div:nth-child(1){font-size:10.5px !important;letter-spacing:.08em !important}
+.num-tile>div:nth-child(2){font-size:54px !important}
+.num-tile>div:nth-child(3){font-size:15px !important;line-height:1.25 !important}
+.num-tile>div:nth-child(4){font-size:13px !important}
+.num-tile>div:nth-child(5){display:none !important}
+}
+@media (max-width:640px){.bf-feat{padding:20px 14px 14px;border-radius:20px;gap:14px}.bf-feat-img{border-radius:12px}.bf-feat-tag{font-size:11.5px}}
 </style>
 <!-- Meta Pixel -->
 <script>
@@ -318,7 +327,7 @@ src="https://www.facebook.com/tr?id=846085805228019&ev=PageView&noscript=1"/></n
 <div style="display: flex; flex-wrap: nowrap; gap: 8px 28px; align-items: center; font-size: 15px; font-weight: 500; white-space: nowrap">
 <a class="navlink" href="#para-quem" style="color: #d0d0d0; text-decoration: none">Para quem é</a>
 <a class="navlink" href="#metodo" style="color: #d0d0d0; text-decoration: none">O método</a>
-<a class="navlink" href="#entregaveis" style="color: #d0d0d0; text-decoration: none">O que você recebe</a>
+<a class="navlink" href="#oferta" style="color: #d0d0d0; text-decoration: none">O que você recebe</a>
 <a class="navlink" href="#prova" style="color: #d0d0d0; text-decoration: none">Prova</a>
 <a class="navlink" href="#faq" style="color: #d0d0d0; text-decoration: none">Perguntas</a>
 <a class="btn nav-cta bf-btn" target="_blank" rel="noopener" href="https://pay.hotmart.com/B107556026R?off=mhusitq9" style="display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 22px; background: #f0be3c; color: #0d0d0d; font-weight: 800; font-size: 15px; border-radius: 12px; text-decoration: none">Quero acessar</a>
@@ -331,7 +340,7 @@ src="https://www.facebook.com/tr?id=846085805228019&ev=PageView&noscript=1"/></n
 <div class="hero-wrap" style="max-width: 1120px; margin: 0 auto; padding: 26px 24px 40px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center">
 <div class="hero-head" style="display: flex; flex-direction: column; align-items: center; gap: 14px; max-width: 1080px">
 <div class="hero-pill" style="display: inline-flex; align-items: center; gap: 10px; padding: 7px 16px; border: 1px solid rgba(240, 190, 60, 0.45); background: rgba(240, 190, 60, 0.08); border-radius: 999px; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #f0be3c; margin-bottom: 2px"><span style="width: 8px; height: 8px; border-radius: 999px; background: #f0be3c; display: inline-block"></span>Para quem quer vender mais</div>
-<h1 class="hero-h1" style="line-height: 1.1; color: #ffffff; max-width: 1060px; text-transform: uppercase">Recupere as <span style="color: #f0be3c">vendas paradas</span> no seu WhatsApp.</h1>
+<h1 class="hero-h1" style="line-height: 1.1; color: #ffffff; max-width: 1060px; text-transform: uppercase"><span style="color: #f0be3c">Venda em até 72h</span> colocando este curso em prática</h1>
 <p class="hero-sub">O cliente pediu o preço e sumiu? Aprenda a trazer ele de volta com o método dos 5Ps.</p>
 </div>
 
@@ -346,16 +355,16 @@ src="https://www.facebook.com/tr?id=846085805228019&ev=PageView&noscript=1"/></n
 <div class="bf-bonus" data-bf-bonus hidden><span class="bf-tag">Só na Black Friday</span> <span data-bf-bonus-t></span></div>
 <a class="btn bf-btn bf-cta" target="_blank" rel="noopener" href="https://pay.hotmart.com/B107556026R?off=mhusitq9">Quero aproveitar a Black Friday <span aria-hidden="true">→</span></a>
 <div class="bf-price-g">Garantia de 7 dias</div>
-<p class="bf-math">Uma venda recuperada pode pagar o curso. Simulação: com um ticket de R$ 500, uma única venda equivale a mais de 7 vezes o valor investido. Não é promessa de resultado.</p>
+<p class="bf-math">Uma venda recuperada pode pagar o curso. Simulação: com um ticket de R$ 500, uma única venda equivale a mais de 7 vezes o valor investido. Simulação de exemplo: o resultado de cada negócio varia.</p>
 </div>
 
-<!-- VSL: vídeo do Filipe no YouTube (não listado). Para trocar, mude o ID FxISTWj7oVw aqui, no iframe do script no fim da página e a capa (arquivos vsl-capa-720 e vsl-capa-1280 na pasta assets) -->
-<div class="vsl" style="width: 100%; max-width: 780px; box-sizing: border-box; border-radius: 24px; background: #151515; border: 1px solid rgba(240, 190, 60, 0.55); box-shadow: 0 0 0 8px rgba(240, 190, 60, 0.06), 0 20px 60px rgba(240, 190, 60, 0.18); overflow: hidden">
-<div class="vsl-tag" style="display: flex; align-items: center; gap: 8px; padding: 12px 20px; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #f0be3c; text-align: left"><span style="width: 8px; height: 8px; border-radius: 999px; background: #f0be3c; display: inline-block"></span>Assista antes de continuar</div>
-<div class="vsl-stage" id="vsl-stage" style="position: relative; width: 100%; max-width: 100%; aspect-ratio: 16 / 9; background: #000">
-<a class="vsl-facade" id="vsl-facade" href="https://youtu.be/FxISTWj7oVw" target="_blank" rel="noopener" aria-label="Assistir ao vídeo do Filipe Elias sobre o Follow-Up Sem Vergonha" style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: #000; cursor: pointer; -webkit-tap-highlight-color: transparent"><img src="assets/vsl-capa-1280.95ee5710.webp" srcset="assets/vsl-capa-720.3382fdec.webp 720w, assets/vsl-capa-960.86108c27.webp 960w, assets/vsl-capa-1280.95ee5710.webp 1280w" sizes="(min-width: 820px) 780px, calc(100vw - 34px)" width="1280" height="720" alt="" fetchpriority="high" decoding="async" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover"><span class="vsl-play" style="position: relative; display: flex; align-items: center; justify-content: center; width: 88px; height: 88px; border-radius: 999px; background: #f0be3c; box-shadow: 0 0 0 10px rgba(240, 190, 60, 0.28), 0 12px 40px rgba(0, 0, 0, 0.5)"><svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true" style="margin-left: 5px"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12-7.5a1 1 0 0 0 0-1.72l-12-7.5A1 1 0 0 0 7 4.5z" fill="#0d0d0d"></path></svg></span></a>
-</div>
-</div>
+<!-- DEPOIMENTO EM DESTAQUE (no lugar da VSL) -->
+<figure class="bf-feat">
+<span class="bf-feat-tag"><span style="width: 8px; height: 8px; border-radius: 999px; background: #f0be3c; display: inline-block"></span>Mensagem real de um aluno</span>
+<blockquote class="bf-feat-big">“Venda de 2k. <em>Se pagou 20x o curso.</em>”</blockquote>
+<div class="bf-feat-img"><img src="assets/depo4.295388a4.webp" width="1118" height="332" alt="Mensagem de WhatsApp de um aluno dizendo que o curso já se pagou: ele retomou o contato com um lead de 15 dias antes, usou a técnica de reativação do curso e fechou uma venda de 2 mil reais, 20 vezes o valor do curso" loading="lazy" decoding="async"></div>
+<figcaption class="bf-feat-fine">Depoimento de um aluno. O resultado de cada negócio varia.</figcaption>
+</figure>
 
 <p class="hero-note" style="max-width: 800px; margin: 4px 0 0; display: flex; flex-direction: column; gap: 8px; align-items: center"><span class="hero-note-t">O follow-up pode aumentar <strong>90%</strong> suas chances de conseguir falar com um potencial cliente e criar novas oportunidades de venda.</span><span style="font-size: 12.5px; line-height: 1.4; color: #7f7f7f">Fonte: Meetime, Inside Sales Benchmark Brasil.</span></p>
 
@@ -378,11 +387,10 @@ src="https://www.facebook.com/tr?id=846085805228019&ev=PageView&noscript=1"/></n
 
 <!-- PROVA -->
 <div id="prova">
-<div style="max-width: 1120px; margin: 0 auto; padding: 72px 24px; box-sizing: border-box; display: flex; flex-direction: column; gap: 56px">
+<div style="max-width: 1120px; margin: 0 auto; padding: 52px 24px; box-sizing: border-box; display: flex; flex-direction: column; gap: 38px">
 <div style="display: flex; flex-direction: column; gap: 22px">
 <div style="align-self: flex-start; padding: 8px 16px; border: 1px solid #cdbf9f; border-radius: 999px; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #8a5d0f">Resultados reais</div>
-<h2 style="font-size: clamp(32px, 4.6vw, 60px); line-height: 1.06; max-width: 940px">Veja o que acontece quando você aprende a aproveitar melhor <span style="background: linear-gradient(transparent 62%, #f4d77a 62%)">cada oportunidade de venda.</span></h2>
-<p style="font-size: 20px; color: #5f5848; max-width: 640px">Conheça experiências reais de quem colocou os ensinamentos em prática.</p>
+<h2 style="font-size: clamp(29px, 3.7vw, 46px); line-height: 1.06; max-width: 940px">Veja o que acontece quando você aprende a aproveitar melhor <span style="background: linear-gradient(transparent 62%, #f4d77a 62%)">cada oportunidade de venda.</span></h2>
 </div>
 
 <!-- DEPOIMENTOS: para acrescentar um print, copie um bloco depo-card e troque o src da imagem. A imagem aparece inteira, na proporção original. -->
@@ -397,67 +405,13 @@ src="https://www.facebook.com/tr?id=846085805228019&ev=PageView&noscript=1"/></n
 </div>
 </div>
 
-<!-- QUEM ENSINA -->
-<div style="background: #e8e7e3">
-<div class="ens-wrap" style="max-width: 1120px; margin: 0 auto; padding: 64px 24px; box-sizing: border-box; display: flex; flex-direction: column; gap: 28px">
-<div style="display: flex; flex-direction: column; gap: 14px">
-<div style="align-self: flex-start; padding: 8px 16px; border: 1px solid #b9b7ae; border-radius: 999px; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #8a5d0f">Quem ensina</div>
-<h2 class="ens-h" style="font-size: clamp(26px, 3vw, 38px); line-height: 1.12; text-wrap: balance">Aprenda com quem vive isso <span style="background: linear-gradient(transparent 60%, #f4d77a 60%)">na prática</span>.</h2>
-</div>
-<div class="ens-grid">
-<div class="ens-card">
-<div class="ens-photo ens-photo--img"><img class="ens-img" src="assets/filipe_card.a403edbb.webp" alt="Filipe Elias" width="360" height="360" loading="lazy" decoding="async"></div>
-<h3 class="ens-name">Filipe Elias</h3>
-<p class="ens-desc">Especialista em vendas, com mais de 4 anos de experiência comercial. Responsável pelo treinamento Follow-Up Sem Vergonha.</p>
-</div>
-<div class="ens-card">
-<div class="ens-photo ens-photo--img"><img class="ens-img" src="assets/sophia_card.3cd96c1d.webp" alt="Sophia Kumagai" width="480" height="480" loading="lazy" decoding="async"></div>
-<h3 class="ens-name">Sophia Kumagai</h3>
-<p class="ens-desc">Estrategista de marketing e fundadora do Método Zoe. Responsável pela aula bônus sobre posicionamento, conteúdo e Stories para vender.</p>
-</div>
-</div>
-</div>
-</div>
-
-<!-- DORES (PRETO) -->
-<div style="background: #0d0d0d; color: #f0f0f0">
-<div style="max-width: 1120px; margin: 0 auto; padding: 72px 24px; box-sizing: border-box; display: flex; flex-direction: column; gap: 52px">
-<div style="display: flex; flex-direction: column; gap: 24px">
-<div style="align-self: flex-start; padding: 8px 16px; border: 1px solid rgba(240, 190, 60, 0.45); background: rgba(240, 190, 60, 0.08); border-radius: 999px; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #f0be3c">O problema</div>
-<h2 style="font-size: clamp(30px, 4.6vw, 62px); line-height: 1.06; max-width: 960px; color: #ffffff">Quantas vendas você já perdeu porque o cliente disse que ia pensar e <span style="color: #f0be3c">nunca mais voltou?</span></h2>
-</div>
-
-<div style="display: flex; flex-wrap: wrap; gap: 20px">
-<div style="flex: 1 1 300px; box-sizing: border-box; background: #181818; border: 1px solid #2c2c2c; border-radius: 20px; padding: 36px 32px; display: flex; flex-direction: column; gap: 14px">
-<div style="font-family: 'Sora', system-ui, sans-serif; font-size: 20px; font-weight: 800; letter-spacing: 0.04em; color: #f0be3c">01</div>
-<h3 style="font-size: 24px; line-height: 1.15; color: #ffffff">Você espera o cliente voltar</h3>
-<p style="font-size: 17px; color: #b8b8b8">Ele demonstra interesse, pede o orçamento e desaparece. Você fica esperando uma resposta que nunca chega.</p>
-</div>
-<div style="flex: 1 1 300px; box-sizing: border-box; background: #181818; border: 1px solid #2c2c2c; border-radius: 20px; padding: 36px 32px; display: flex; flex-direction: column; gap: 14px">
-<div style="font-family: 'Sora', system-ui, sans-serif; font-size: 20px; font-weight: 800; letter-spacing: 0.04em; color: #f0be3c">02</div>
-<h3 style="font-size: 24px; line-height: 1.15; color: #ffffff">Você tem medo de insistir</h3>
-<p style="font-size: 17px; color: #b8b8b8">Fica na dúvida se deve chamar novamente e acaba deixando a oportunidade passar.</p>
-</div>
-<div style="flex: 1 1 300px; box-sizing: border-box; background: #181818; border: 1px solid #2c2c2c; border-radius: 20px; padding: 36px 32px; display: flex; flex-direction: column; gap: 14px">
-<div style="font-family: 'Sora', system-ui, sans-serif; font-size: 20px; font-weight: 800; letter-spacing: 0.04em; color: #f0be3c">03</div>
-<h3 style="font-size: 24px; line-height: 1.15; color: #ffffff">Você continua buscando novos clientes</h3>
-<p style="font-size: 17px; color: #b8b8b8">Enquanto isso, várias pessoas que já demonstraram interesse continuam sem comprar.</p>
-</div>
-</div>
-
-<div style="display: flex; justify-content: center">
-<a class="btn cta" href="#oferta">Quero parar de perder vendas <span aria-hidden="true">→</span></a>
-</div>
-</div>
-</div>
-
 <!-- DEMONSTRAÇÃO -->
-<div style="max-width: 1120px; margin: 0 auto; padding: 80px 24px; box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 56px 72px; align-items: center">
+<div style="max-width: 1120px; margin: 0 auto; padding: 56px 24px; box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 38px 72px; align-items: center">
 
 <!-- Texto -->
 <div style="flex: 1 1 440px; min-width: 0; display: flex; flex-direction: column; gap: 28px">
 <div style="align-self: flex-start; padding: 8px 16px; border: 1px solid #cdbf9f; border-radius: 999px; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #8a5d0f">Você já passou por isso?</div>
-<h2 style="font-size: clamp(32px, 4.4vw, 58px); line-height: 1.06">O cliente demonstra interesse, pede o preço e <span style="background: linear-gradient(transparent 62%, #f4d77a 62%)">depois desaparece.</span></h2>
+<h2 style="font-size: clamp(29px, 3.5vw, 44px); line-height: 1.06">O cliente demonstra interesse, pede o preço e <span style="background: linear-gradient(transparent 62%, #f4d77a 62%)">depois desaparece.</span></h2>
 <p style="font-size: 21px; color: #5f5848; max-width: 460px">E você fica sem saber o que fazer para não perder a venda.</p>
 </div>
 
@@ -485,28 +439,28 @@ src="https://www.facebook.com/tr?id=846085805228019&ev=PageView&noscript=1"/></n
 
 <!-- A GRANDE ARMADILHA (PRETO) -->
 <div style="background: #0d0d0d; color: #f0f0f0">
-<div style="max-width: 1120px; margin: 0 auto; padding: 88px 24px; box-sizing: border-box; display: flex; flex-direction: column; gap: 52px">
+<div style="max-width: 1120px; margin: 0 auto; padding: 64px 24px; box-sizing: border-box; display: flex; flex-direction: column; gap: 34px">
 <div style="align-self: flex-start; padding: 8px 16px; border: 1px solid rgba(240, 190, 60, 0.45); background: rgba(240, 190, 60, 0.08); border-radius: 999px; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #f0be3c">A grande armadilha</div>
-<h2 style="font-size: clamp(30px, 4.6vw, 62px); line-height: 1.06; max-width: 960px; color: #ffffff">Você provavelmente está fazendo follow-up <span style="color: #f0be3c">da forma errada.</span></h2>
+<h2 style="font-size: clamp(28px, 3.7vw, 47px); line-height: 1.06; max-width: 960px; color: #ffffff">Você provavelmente está fazendo follow-up <span style="color: #f0be3c">da forma errada.</span></h2>
 <div style="display: flex; flex-wrap: wrap; gap: 20px">
-<div style="flex: 1 1 480px; background: #181818; border: 1px solid #2c2c2c; border-radius: 20px; padding: 36px; box-sizing: border-box; display: flex; flex-direction: column; gap: 14px">
+<div style="flex: 1 1 480px; background: #181818; border: 1px solid #2c2c2c; border-radius: 20px; padding: 26px 30px; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px">
 <div style="font-size: 13px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #f0be3c">Mentira #1</div>
-<h3 style="font-size: 24px; color: #ffffff">“Follow-up é perguntar se o cliente conseguiu analisar.”</h3>
+<h3 style="font-size: 21px; color: #ffffff">“Follow-up é perguntar se o cliente conseguiu analisar.”</h3>
 <p style="font-size: 17px; color: #b8b8b8"><strong style="color: #0d0d0d; background: #f0be3c; padding: 2px 10px; border-radius: 6px">Falso.</strong> Essa pergunta devolve a responsabilidade da decisão para o cliente. Follow-up é condução: entender onde a negociação parou e escolher o movimento que a faz avançar.</p>
 </div>
-<div style="flex: 1 1 480px; background: #181818; border: 1px solid #2c2c2c; border-radius: 20px; padding: 36px; box-sizing: border-box; display: flex; flex-direction: column; gap: 14px">
+<div style="flex: 1 1 480px; background: #181818; border: 1px solid #2c2c2c; border-radius: 20px; padding: 26px 30px; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px">
 <div style="font-size: 13px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #f0be3c">Mentira #2</div>
-<h3 style="font-size: 24px; color: #ffffff">“Se o cliente sumiu, perdeu o interesse.”</h3>
+<h3 style="font-size: 21px; color: #ffffff">“Se o cliente sumiu, perdeu o interesse.”</h3>
 <p style="font-size: 17px; color: #b8b8b8"><strong style="color: #0d0d0d; background: #f0be3c; padding: 2px 10px; border-radius: 6px">Falso.</strong> O silêncio costuma dizer mais sobre como a negociação foi conduzida do que sobre o interesse do cliente.</p>
 </div>
-<div style="flex: 1 1 480px; background: #181818; border: 1px solid #2c2c2c; border-radius: 20px; padding: 36px; box-sizing: border-box; display: flex; flex-direction: column; gap: 14px">
+<div style="flex: 1 1 480px; background: #181818; border: 1px solid #2c2c2c; border-radius: 20px; padding: 26px 30px; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px">
 <div style="font-size: 13px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #f0be3c">Mentira #3</div>
-<h3 style="font-size: 24px; color: #ffffff">“Quanto mais mensagens, melhor.”</h3>
+<h3 style="font-size: 21px; color: #ffffff">“Quanto mais mensagens, melhor.”</h3>
 <p style="font-size: 17px; color: #b8b8b8"><strong style="color: #0d0d0d; background: #f0be3c; padding: 2px 10px; border-radius: 6px">Falso.</strong> Insistir sem propósito vira perseguição. Presença é continuar na conversa durante a decisão, sem desaparecer e sem perseguir.</p>
 </div>
-<div style="flex: 1 1 480px; background: #181818; border: 1px solid #2c2c2c; border-radius: 20px; padding: 36px; box-sizing: border-box; display: flex; flex-direction: column; gap: 14px">
+<div style="flex: 1 1 480px; background: #181818; border: 1px solid #2c2c2c; border-radius: 20px; padding: 26px 30px; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px">
 <div style="font-size: 13px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #f0be3c">Mentira #4</div>
-<h3 style="font-size: 24px; color: #ffffff">“Basta ter o script certo.”</h3>
+<h3 style="font-size: 21px; color: #ffffff">“Basta ter o script certo.”</h3>
 <p style="font-size: 17px; color: #b8b8b8"><strong style="color: #0d0d0d; background: #f0be3c; padding: 2px 10px; border-radius: 6px">Falso.</strong> Você não precisa de um script. Precisa de um processo para saber o que fazer em cada negociação.</p>
 </div>
 </div>
@@ -518,138 +472,102 @@ src="https://www.facebook.com/tr?id=846085805228019&ev=PageView&noscript=1"/></n
 
 <!-- ARGUMENTOS (CINZA) -->
 <div style="background: #e8e7e3">
-<div style="max-width: 1120px; margin: 0 auto; padding: 88px 24px; box-sizing: border-box; display: flex; flex-direction: column; gap: 52px">
+<div style="max-width: 1120px; margin: 0 auto; padding: 64px 24px; box-sizing: border-box; display: flex; flex-direction: column; gap: 34px">
 <div style="display: flex; flex-direction: column; gap: 22px">
 <div style="align-self: flex-start; padding: 8px 16px; border: 1px solid #b9b7ae; border-radius: 999px; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #8a5d0f">Os números</div>
-<h2 style="font-size: clamp(32px, 4.8vw, 64px); line-height: 1.06; max-width: 900px">Quem demora ou desiste <span style="background: linear-gradient(transparent 60%, #f4d77a 60%)">perde a venda.</span></h2>
+<h2 style="font-size: clamp(29px, 3.8vw, 49px); line-height: 1.06; max-width: 900px">Quem demora <span style="background: linear-gradient(transparent 60%, #f4d77a 60%)">perde a venda.</span></h2>
 </div>
 
 <!-- Destaques -->
-<div style="display: flex; flex-wrap: wrap; gap: 24px">
-<div style="flex: 1 1 460px; box-sizing: border-box; background: radial-gradient(ellipse 80% 80% at 100% 0%, rgba(240, 190, 60, 0.22), rgba(13, 13, 13, 0) 70%), #0d0d0d; border: 1px solid rgba(240, 190, 60, 0.4); border-radius: 28px; padding: 44px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 24px 70px rgba(13, 13, 13, 0.25)">
+<div class="num-wrap" style="display: flex; flex-wrap: wrap; gap: 24px">
+<div class="num-tile" style="flex: 1 1 460px; box-sizing: border-box; background: radial-gradient(ellipse 80% 80% at 100% 0%, rgba(240, 190, 60, 0.22), rgba(13, 13, 13, 0) 70%), #0d0d0d; border: 1px solid rgba(240, 190, 60, 0.4); border-radius: 24px; padding: 30px 32px; display: flex; flex-direction: column; gap: 10px; box-shadow: 0 24px 70px rgba(13, 13, 13, 0.25)">
 <div style="font-size: 13px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #f0be3c">Responder em até 1 hora</div>
-<div style="font-family: 'Sora', system-ui, sans-serif; font-size: clamp(88px, 12vw, 150px); font-weight: 800; line-height: 1; letter-spacing: -0.03em; color: #f0be3c">7x</div>
+<div style="font-family: 'Sora', system-ui, sans-serif; font-size: clamp(64px, 8vw, 96px); font-weight: 800; line-height: 1; letter-spacing: -0.03em; color: #f0be3c">7x</div>
 <div style="font-family: 'Sora', system-ui, sans-serif; font-size: 26px; font-weight: 700; line-height: 1.2; color: #ffffff">mais chance de qualificar o cliente</div>
 <div style="font-size: 17px; color: #c4c4c4">do que quem demora mais de 1 hora.</div>
 <div style="font-size: 14px; color: #8f8f8f; padding-top: 10px; border-top: 1px solid #2c2c2c">Harvard Business Review, 2011 · 1,25 milhão de leads</div>
 </div>
-<div style="flex: 1 1 460px; box-sizing: border-box; background: radial-gradient(ellipse 80% 80% at 100% 0%, rgba(240, 190, 60, 0.22), rgba(13, 13, 13, 0) 70%), #0d0d0d; border: 1px solid rgba(240, 190, 60, 0.4); border-radius: 28px; padding: 44px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 24px 70px rgba(13, 13, 13, 0.25)">
+<div class="num-tile" style="flex: 1 1 460px; box-sizing: border-box; background: radial-gradient(ellipse 80% 80% at 100% 0%, rgba(240, 190, 60, 0.22), rgba(13, 13, 13, 0) 70%), #0d0d0d; border: 1px solid rgba(240, 190, 60, 0.4); border-radius: 24px; padding: 30px 32px; display: flex; flex-direction: column; gap: 10px; box-shadow: 0 24px 70px rgba(13, 13, 13, 0.25)">
 <div style="font-size: 13px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #f0be3c">Responder em até 1 hora</div>
-<div style="font-family: 'Sora', system-ui, sans-serif; font-size: clamp(88px, 12vw, 150px); font-weight: 800; line-height: 1; letter-spacing: -0.03em; color: #f0be3c">60x</div>
+<div style="font-family: 'Sora', system-ui, sans-serif; font-size: clamp(64px, 8vw, 96px); font-weight: 800; line-height: 1; letter-spacing: -0.03em; color: #f0be3c">60x</div>
 <div style="font-family: 'Sora', system-ui, sans-serif; font-size: 26px; font-weight: 700; line-height: 1.2; color: #ffffff">mais chance de qualificar o cliente</div>
 <div style="font-size: 17px; color: #c4c4c4">do que quem demora 24 horas ou mais.</div>
 <div style="font-size: 14px; color: #8f8f8f; padding-top: 10px; border-top: 1px solid #2c2c2c">Harvard Business Review, 2011 · 1,25 milhão de leads</div>
 </div>
 </div>
 
-<div style="display: flex; flex-wrap: wrap; gap: 24px">
-<div style="flex: 1 1 300px; box-sizing: border-box; background: #ffffff; border: 1px solid #d9d7d1; border-radius: 24px; padding: 36px; display: flex; flex-direction: column; gap: 12px">
-<div style="font-family: 'Sora', system-ui, sans-serif; font-size: clamp(64px, 8vw, 96px); font-weight: 800; line-height: 1.05; letter-spacing: -0.03em"><span style="background: linear-gradient(transparent 62%, #f4d77a 62%)">23%</span></div>
-<div style="font-size: 20px; font-weight: 600; line-height: 1.3">das empresas nunca responderam o cliente.</div>
-<div style="font-size: 14px; color: #5f5848; padding-top: 10px; border-top: 1px solid #e2e0da; margin-top: auto">Harvard Business Review, 2011 · 2.241 empresas testadas</div>
-</div>
-<div style="flex: 1 1 300px; box-sizing: border-box; background: #ffffff; border: 1px solid #d9d7d1; border-radius: 24px; padding: 36px; display: flex; flex-direction: column; gap: 12px">
-<div style="font-family: 'Sora', system-ui, sans-serif; font-size: clamp(64px, 8vw, 96px); font-weight: 800; line-height: 1.05; letter-spacing: -0.03em"><span style="background: linear-gradient(transparent 62%, #f4d77a 62%)">50%</span></div>
-<div style="font-size: 20px; font-weight: 600; line-height: 1.3">dos leads recebem uma única ligação e nunca mais são chamados.</div>
-<div style="font-size: 14px; color: #5f5848; padding-top: 10px; border-top: 1px solid #e2e0da; margin-top: auto">Velocify, pesquisa sobre contato com leads</div>
-</div>
-<div style="flex: 1 1 300px; box-sizing: border-box; background: #ffffff; border: 1px solid #d9d7d1; border-radius: 24px; padding: 36px; display: flex; flex-direction: column; gap: 12px">
-<div style="font-family: 'Sora', system-ui, sans-serif; font-size: clamp(64px, 8vw, 96px); font-weight: 800; line-height: 1.05; letter-spacing: -0.03em"><span style="background: linear-gradient(transparent 62%, #f4d77a 62%)">93%</span></div>
-<div style="font-size: 20px; font-weight: 600; line-height: 1.3">dos leads que viraram cliente foram alcançados até a 6ª tentativa.</div>
-<div style="font-size: 14px; color: #5f5848; padding-top: 10px; border-top: 1px solid #e2e0da; margin-top: auto">Velocify · cerca de 3,5 milhões de leads</div>
-</div>
-</div>
-
 <div style="display: flex; flex-direction: column; gap: 10px; max-width: 880px">
 <p style="font-size: 15px; color: #5f5848">São estudos sobre resposta e contato com leads de vendas. O resultado de cada negócio varia.</p>
-<p style="font-size: 15px; color: #5f5848">Fontes: <a class="src" href="https://scholarsarchive.byu.edu/facpub/9711">Harvard Business Review, “The Short Life of Online Sales Leads” (Oldroyd, McElheran e Elkington, 2011)</a> e Velocify, “The Ultimate Contact Strategy”.</p>
-</div>
-<div class="cta-wrap">
-<a class="btn cta" href="#oferta">Quero recuperar minhas vendas <span aria-hidden="true">→</span></a>
+<p style="font-size: 15px; color: #5f5848">Fonte: <a class="src" href="https://scholarsarchive.byu.edu/facpub/9711">Harvard Business Review, “The Short Life of Online Sales Leads” (Oldroyd, McElheran e Elkington, 2011)</a>.</p>
 </div>
 </div>
 </div>
 
 <!-- A VIRADA (PRETO) -->
 <div style="background: radial-gradient(ellipse 70% 70% at 50% 100%, rgba(240, 190, 60, 0.16), rgba(13, 13, 13, 0) 70%), #0d0d0d; color: #f0f0f0">
-<div style="max-width: 960px; margin: 0 auto; padding: 96px 24px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; gap: 32px; text-align: center">
+<div style="max-width: 960px; margin: 0 auto; padding: 64px 24px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; gap: 22px; text-align: center">
 <div style="padding: 8px 16px; border: 1px solid rgba(240, 190, 60, 0.45); background: rgba(240, 190, 60, 0.08); border-radius: 999px; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #f0be3c">A virada</div>
-<h2 style="font-size: clamp(34px, 5.4vw, 72px); line-height: 1.04; color: #ffffff">O problema não é o cliente. <span style="color: #f0be3c">É a falta de um processo.</span></h2>
-<p style="font-size: 22px; color: #c4c4c4; max-width: 780px">Em vez de perguntar “o que eu mando agora?”, você passa a perguntar <strong style="color: #ffffff">“em que ponto está essa negociação e qual é o próximo passo?”</strong>. Você não sai com 30 frases decoradas. Sai sabendo pensar uma negociação.</p>
-<a href="#metodo" style="font-size: 18px; font-weight: 700; color: #f0be3c">Conheça o método dos 5Ps ↓</a>
+<h2 style="font-size: clamp(28px, 4vw, 50px); line-height: 1.04; color: #ffffff">O problema não é o cliente. <span style="color: #f0be3c">É a falta de um processo.</span></h2>
+<p style="font-size: 19px; color: #c4c4c4; max-width: 780px">Em vez de perguntar “o que eu mando agora?”, você passa a perguntar <strong style="color: #ffffff">“em que ponto está essa negociação e qual é o próximo passo?”</strong>. Você não sai com 30 frases decoradas. Sai sabendo pensar uma negociação.</p>
 </div>
 </div>
 
 <!-- O MÉTODO -->
 <div id="metodo">
-<div style="max-width: 1120px; margin: 0 auto; padding: 88px 24px; box-sizing: border-box; display: flex; flex-direction: column; gap: 52px">
+<div style="max-width: 1120px; margin: 0 auto; padding: 64px 24px; box-sizing: border-box; display: flex; flex-direction: column; gap: 34px">
 <div style="display: flex; flex-direction: column; gap: 24px">
 <div style="align-self: flex-start; padding: 8px 16px; border: 1px solid #cdbf9f; border-radius: 999px; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #8a5d0f">O método</div>
-<h2 style="font-size: clamp(30px, 4.4vw, 58px); line-height: 1.06; max-width: 960px">Follow-up é o que você faz <span style="background: linear-gradient(transparent 60%, #f4d77a 60%)">depois que o cliente viu o preço e não respondeu.</span></h2>
+<h2 style="font-size: clamp(28px, 3.5vw, 44px); line-height: 1.06; max-width: 960px">Follow-up é o que você faz <span style="background: linear-gradient(transparent 60%, #f4d77a 60%)">depois que o cliente viu o preço e não respondeu.</span></h2>
 <p style="font-size: 21px; color: #5f5848; max-width: 780px">Este treinamento ensina a fazer isso com o método dos 5Ps, para você deixar de depender do cliente voltar sozinho.</p>
 </div>
 <div style="display: flex; flex-wrap: wrap; gap: 20px">
-<div style="flex: 1 1 320px; background: #ffffff; border: 1px solid #e2d9c6; border-radius: 20px; padding: 32px; display: flex; flex-direction: column; gap: 12px">
-<div style="font-family: 'Sora', system-ui, sans-serif; font-size: 44px; font-weight: 800; color: #f0be3c; line-height: 1">01</div>
-<h3 style="font-size: 26px">Problema</h3>
+<div style="flex: 1 1 320px; background: #ffffff; border: 1px solid #e2d9c6; border-radius: 20px; padding: 22px 26px; display: flex; flex-direction: column; gap: 6px">
+<div style="font-family: 'Sora', system-ui, sans-serif; font-size: 32px; font-weight: 800; color: #f0be3c; line-height: 1">01</div>
+<h3 style="font-size: 22px">Problema</h3>
 <p style="font-size: 17px; color: #5f5848">Entenda o que está por trás daquela compra antes de tentar fazer o cliente avançar.</p>
 </div>
-<div style="flex: 1 1 320px; background: #ffffff; border: 1px solid #e2d9c6; border-radius: 20px; padding: 32px; display: flex; flex-direction: column; gap: 12px">
-<div style="font-family: 'Sora', system-ui, sans-serif; font-size: 44px; font-weight: 800; color: #f0be3c; line-height: 1">02</div>
-<h3 style="font-size: 26px">Personalização</h3>
+<div style="flex: 1 1 320px; background: #ffffff; border: 1px solid #e2d9c6; border-radius: 20px; padding: 22px 26px; display: flex; flex-direction: column; gap: 6px">
+<div style="font-family: 'Sora', system-ui, sans-serif; font-size: 32px; font-weight: 800; color: #f0be3c; line-height: 1">02</div>
+<h3 style="font-size: 22px">Personalização</h3>
 <p style="font-size: 17px; color: #5f5848">Use o contexto daquela negociação para não mandar a mesma abordagem para todo mundo.</p>
 </div>
-<div style="flex: 1 1 320px; background: #ffffff; border: 1px solid #e2d9c6; border-radius: 20px; padding: 32px; display: flex; flex-direction: column; gap: 12px">
-<div style="font-family: 'Sora', system-ui, sans-serif; font-size: 44px; font-weight: 800; color: #f0be3c; line-height: 1">03</div>
-<h3 style="font-size: 26px">Presença</h3>
+<div style="flex: 1 1 320px; background: #ffffff; border: 1px solid #e2d9c6; border-radius: 20px; padding: 22px 26px; display: flex; flex-direction: column; gap: 6px">
+<div style="font-family: 'Sora', system-ui, sans-serif; font-size: 32px; font-weight: 800; color: #f0be3c; line-height: 1">03</div>
+<h3 style="font-size: 22px">Presença</h3>
 <p style="font-size: 17px; color: #5f5848">Continue presente durante a decisão, sem desaparecer e sem virar perseguição.</p>
 </div>
-<div style="flex: 1 1 320px; background: #ffffff; border: 1px solid #e2d9c6; border-radius: 20px; padding: 32px; display: flex; flex-direction: column; gap: 12px">
-<div style="font-family: 'Sora', system-ui, sans-serif; font-size: 44px; font-weight: 800; color: #f0be3c; line-height: 1">04</div>
-<h3 style="font-size: 26px">Persistência</h3>
+<div style="flex: 1 1 320px; background: #ffffff; border: 1px solid #e2d9c6; border-radius: 20px; padding: 22px 26px; display: flex; flex-direction: column; gap: 6px">
+<div style="font-family: 'Sora', system-ui, sans-serif; font-size: 32px; font-weight: 800; color: #f0be3c; line-height: 1">04</div>
+<h3 style="font-size: 22px">Persistência</h3>
 <p style="font-size: 17px; color: #5f5848">Saiba quando continuar, como retomar e quando aquela negociação deixou de fazer sentido.</p>
 </div>
-<div style="flex: 1 1 320px; background: #0d0d0d; border-radius: 20px; padding: 32px; display: flex; flex-direction: column; gap: 12px">
-<div style="font-family: 'Sora', system-ui, sans-serif; font-size: 44px; font-weight: 800; color: #f0be3c; line-height: 1">05</div>
-<h3 style="font-size: 26px; color: #ffffff">Próximo passo</h3>
+<div style="flex: 1 1 320px; background: #0d0d0d; border-radius: 20px; padding: 22px 26px; display: flex; flex-direction: column; gap: 6px">
+<div style="font-family: 'Sora', system-ui, sans-serif; font-size: 32px; font-weight: 800; color: #f0be3c; line-height: 1">05</div>
+<h3 style="font-size: 22px; color: #ffffff">Próximo passo</h3>
 <p style="font-size: 17px; color: #c4c4c4">Nunca mande uma mensagem sem saber o que você quer que aconteça depois dela.</p>
 </div>
 </div>
 </div>
 </div>
 
-<!-- ENTREGÁVEIS (PRETO) -->
-<div id="entregaveis" style="background: #0d0d0d; color: #f0f0f0">
-<div class="entr-wrap" style="max-width: 1000px; margin: 0 auto; padding: 64px 24px; box-sizing: border-box; display: flex; flex-direction: column; gap: 30px">
-<div style="display: flex; flex-direction: column; gap: 16px">
-<div style="align-self: flex-start; padding: 8px 16px; border: 1px solid rgba(240, 190, 60, 0.45); background: rgba(240, 190, 60, 0.08); border-radius: 999px; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #f0be3c">O que você recebe</div>
-<h2 class="entr-h" style="font-size: clamp(28px, 3.6vw, 44px); line-height: 1.1; max-width: 760px; color: #ffffff; text-wrap: balance">O que você vai aprender <span style="color: #f0be3c">para vender mais.</span></h2>
+<!-- QUEM ENSINA -->
+<div style="background: #e8e7e3">
+<div class="ens-wrap" style="max-width: 1120px; margin: 0 auto; padding: 64px 24px; box-sizing: border-box; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<div style="align-self: flex-start; padding: 8px 16px; border: 1px solid #b9b7ae; border-radius: 999px; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #8a5d0f">Quem ensina</div>
+<h2 class="ens-h" style="font-size: clamp(26px, 3vw, 38px); line-height: 1.12; text-wrap: balance">Aprenda com quem vive isso <span style="background: linear-gradient(transparent 60%, #f4d77a 60%)">na prática</span>.</h2>
 </div>
-<div class="entr-grid">
-<div class="entr-card" style="background: #181818; border: 1px solid #2c2c2c; border-radius: 18px; padding: 20px 24px; box-sizing: border-box; display: flex; flex-direction: column; gap: 6px">
-<div style="display: flex; align-items: center; justify-content: space-between; gap: 12px"><span style="font-family: 'Sora', system-ui, sans-serif; font-size: 14px; font-weight: 800; letter-spacing: 0.08em; color: #f0be3c">01</span></div>
-<h3 style="font-size: 21px; line-height: 1.2; color: #ffffff">Método dos 5Ps</h3>
-<p style="font-size: 16px; line-height: 1.5; color: #b8b8b8">Aprenda a conduzir negociações e saber o que fazer em cada etapa da venda.</p>
+<div class="ens-grid">
+<div class="ens-card">
+<div class="ens-photo ens-photo--img"><img class="ens-img" src="assets/filipe_card.a403edbb.webp" alt="Filipe Elias" width="360" height="360" loading="lazy" decoding="async"></div>
+<h3 class="ens-name">Filipe Elias</h3>
+<p class="ens-desc">Especialista em vendas, com mais de 4 anos de experiência comercial. Responsável pelo treinamento Follow-Up Sem Vergonha.</p>
 </div>
-<div class="entr-card" style="background: #181818; border: 1px solid #2c2c2c; border-radius: 18px; padding: 20px 24px; box-sizing: border-box; display: flex; flex-direction: column; gap: 6px">
-<div style="display: flex; align-items: center; justify-content: space-between; gap: 12px"><span style="font-family: 'Sora', system-ui, sans-serif; font-size: 14px; font-weight: 800; letter-spacing: 0.08em; color: #f0be3c">02</span></div>
-<h3 style="font-size: 21px; line-height: 1.2; color: #ffffff">Como recuperar vendas perdidas</h3>
-<p style="font-size: 16px; line-height: 1.5; color: #b8b8b8">Saiba como agir quando o cliente pede o preço, recebe uma proposta ou para de responder.</p>
+<div class="ens-card">
+<div class="ens-photo ens-photo--img"><img class="ens-img" src="assets/sophia_card.3cd96c1d.webp" alt="Sophia Kumagai" width="480" height="480" loading="lazy" decoding="async"></div>
+<h3 class="ens-name">Sophia Kumagai</h3>
+<p class="ens-desc">Estrategista de marketing e fundadora do Método Zoe. Responsável pela aula bônus sobre posicionamento, conteúdo e Stories para vender.</p>
 </div>
-<div class="entr-card" style="background: #181818; border: 1px solid #2c2c2c; border-radius: 18px; padding: 20px 24px; box-sizing: border-box; display: flex; flex-direction: column; gap: 6px">
-<div style="display: flex; align-items: center; justify-content: space-between; gap: 12px"><span style="font-family: 'Sora', system-ui, sans-serif; font-size: 14px; font-weight: 800; letter-spacing: 0.08em; color: #f0be3c">03</span></div>
-<h3 style="font-size: 21px; line-height: 1.2; color: #ffffff">Como vender em diferentes canais</h3>
-<p style="font-size: 16px; line-height: 1.5; color: #b8b8b8">Aprenda a retomar negociações pelo WhatsApp, Instagram e outros canais de atendimento.</p>
-</div>
-<div class="entr-card" style="background: linear-gradient(180deg, rgba(240, 190, 60, 0.10), rgba(240, 190, 60, 0.03)), #181818; border: 1px solid rgba(240, 190, 60, 0.55); border-radius: 18px; padding: 20px 24px; box-sizing: border-box; display: flex; flex-direction: column; gap: 6px">
-<div style="display: flex; align-items: center; justify-content: space-between; gap: 12px"><span style="font-family: 'Sora', system-ui, sans-serif; font-size: 14px; font-weight: 800; letter-spacing: 0.08em; color: #f0be3c">04</span><span style="padding: 3px 10px; background: #f0be3c; color: #0d0d0d; border-radius: 999px; font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase">Bônus</span></div>
-<h3 style="font-size: 21px; line-height: 1.2; color: #ffffff">Aula bônus com Sophia Kumagai</h3>
-<p style="font-size: 16px; line-height: 1.5; color: #b8b8b8">Aprenda a melhorar seu posicionamento, produzir conteúdo e utilizar os Stories para gerar oportunidades de venda.</p>
-</div>
-</div>
-<div style="display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center">
-<p class="entr-cta-text" style="font-size: clamp(18px, 2vw, 22px); line-height: 1.35; font-weight: 600; color: #f0f0f0; max-width: 640px; text-wrap: balance">Acesse o treinamento completo + aula bônus por <strong style="color: #f0be3c; font-weight: 800">R$ 67,90</strong>.</p>
-<div class="cta-wrap"><a class="btn cta" href="#oferta">Quero garantir meu acesso <span aria-hidden="true">→</span></a></div>
 </div>
 </div>
 </div>
@@ -657,10 +575,10 @@ src="https://www.facebook.com/tr?id=846085805228019&ev=PageView&noscript=1"/></n
 <!-- OFERTA (PRETO) · Black Friday -->
 <div class="bf-hazard" aria-hidden="true"></div>
 <div id="oferta" style="background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(240, 190, 60, 0.18), rgba(13, 13, 13, 0) 70%), #0d0d0d; color: #f0f0f0">
-<div class="offer-wrap" style="max-width: 1120px; margin: 0 auto; padding: 88px 24px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; gap: 36px">
+<div class="offer-wrap" style="max-width: 1120px; margin: 0 auto; padding: 64px 24px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; gap: 36px">
 <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center">
 <div style="padding: 8px 16px; border: 1px solid rgba(240, 190, 60, 0.45); background: rgba(240, 190, 60, 0.08); border-radius: 999px; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #f0be3c">Oferta de Black Friday</div>
-<h2 style="font-size: clamp(30px, 4.6vw, 62px); line-height: 1.06; max-width: 900px; color: #ffffff">O treinamento completo por <span style="color: #f0be3c">R$ 67,90.</span></h2>
+<h2 style="font-size: clamp(28px, 3.7vw, 47px); line-height: 1.06; max-width: 900px; color: #ffffff">O treinamento completo por <span style="color: #f0be3c">R$ 67,90.</span></h2>
 <p class="bf-until" data-bf-timer hidden>Oferta de Black Friday válida até <strong data-bf-end></strong> (horário de Brasília).</p>
 </div>
 <div class="offer-card" style="position: relative; width: 100%; max-width: 620px; box-sizing: border-box; background: #151515; border: 2px solid #f0be3c; border-radius: 28px; padding: 44px 40px 32px; display: flex; flex-direction: column; align-items: center; gap: 20px; text-align: center; box-shadow: 0 30px 100px rgba(240, 190, 60, 0.22)">
@@ -670,10 +588,10 @@ src="https://www.facebook.com/tr?id=846085805228019&ev=PageView&noscript=1"/></n
 <div style="font-size: 16px; line-height: 1.45; color: #b8b8b8; text-wrap: balance">Com Filipe Elias e aula bônus com Sophia Kumagai.</div>
 </div>
 <ul class="bf-stack">
-<li class="bf-li"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f0be3c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Método dos 5Ps<small>Conduza cada negociação e saiba o que fazer em cada etapa da venda.</small></span></li>
-<li class="bf-li"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f0be3c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Como recuperar vendas perdidas<small>O que fazer quando o cliente pede o preço, recebe a proposta ou para de responder.</small></span></li>
-<li class="bf-li"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f0be3c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Como vender em diferentes canais<small>Retome negociações pelo WhatsApp, Instagram e outros canais.</small></span></li>
-<li class="bf-li"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f0be3c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Aula bônus com Sophia Kumagai<span class="bf-tag">Bônus</span><small>Posicionamento, conteúdo e Stories para gerar oportunidades de venda.</small></span></li>
+<li class="bf-li"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f0be3c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Método dos 5Ps</span></li>
+<li class="bf-li"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f0be3c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Como recuperar vendas perdidas</span></li>
+<li class="bf-li"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f0be3c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Como vender em diferentes canais</span></li>
+<li class="bf-li"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f0be3c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Aula bônus com Sophia Kumagai<span class="bf-tag">Bônus</span></span></li>
 <li class="bf-li" data-bf-bonus hidden><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f0be3c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><span data-bf-bonus-t></span><span class="bf-tag">Só na Black Friday</span></span></li>
 </ul>
 <div style="display: flex; flex-direction: column; align-items: center; gap: 6px">
@@ -693,51 +611,46 @@ src="https://www.facebook.com/tr?id=846085805228019&ev=PageView&noscript=1"/></n
 
 <!-- FAQ -->
 <div id="faq">
-<div style="max-width: 920px; margin: 0 auto; padding: 88px 24px; box-sizing: border-box; display: flex; flex-direction: column; gap: 48px">
+<div style="max-width: 920px; margin: 0 auto; padding: 64px 24px; box-sizing: border-box; display: flex; flex-direction: column; gap: 30px">
 <div style="display: flex; flex-direction: column; gap: 22px">
 <div style="align-self: flex-start; padding: 8px 16px; border: 1px solid #cdbf9f; border-radius: 999px; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #8a5d0f">Perguntas frequentes</div>
-<h2 style="font-size: clamp(30px, 4.2vw, 54px); line-height: 1.08">Antes de decidir, <span style="background: linear-gradient(transparent 60%, #f4d77a 60%)">leia isto.</span></h2>
+<h2 style="font-size: clamp(28px, 3.4vw, 41px); line-height: 1.08">Antes de decidir, <span style="background: linear-gradient(transparent 60%, #f4d77a 60%)">leia isto.</span></h2>
 </div>
 <div style="display: flex; flex-direction: column; border-top: 1px solid #cfcac0">
 
 <div style="border-bottom: 1px solid #cfcac0">
-<button class="faq" type="button" data-faq="1" aria-expanded="true" aria-controls="faq-p-1" style="width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 28px 8px; background: none; border: none; cursor: pointer; text-align: left; font-family: 'Sora', system-ui, sans-serif; font-size: 21px; font-weight: 700; color: #111118"><span>Eu nem sei direito o que é follow-up.</span><span data-faq-icon style="font-family: 'Inter', sans-serif; font-size: 30px; color: #8a5d0f">−</span></button>
-<p id="faq-p-1" data-faq-panel="1" style="padding: 0 8px 28px; font-size: 18px; color: #5f5848">Se você já mandou uma proposta, ouviu um “vou pensar” ou esperou um cliente responder, já precisou fazer follow-up. O treinamento organiza esse processo para você parar de improvisar.</p>
+<button class="faq" type="button" data-faq="2" aria-expanded="false" aria-controls="faq-p-2" style="width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 18px 8px; background: none; border: none; cursor: pointer; text-align: left; font-family: 'Sora', system-ui, sans-serif; font-size: 19px; font-weight: 700; color: #111118"><span>Já faço follow-up e o cliente não responde.</span><span data-faq-icon style="font-family: 'Inter', sans-serif; font-size: 30px; color: #8a5d0f">+</span></button>
+<p id="faq-p-2" data-faq-panel="2" style="padding: 0 8px 20px; font-size: 17px; color: #5f5848" hidden>Mensagens como “conseguiu analisar?” devolvem toda a decisão para o cliente. O método ensina a terminar a conversa com um próximo passo.</p>
 </div>
 
 <div style="border-bottom: 1px solid #cfcac0">
-<button class="faq" type="button" data-faq="2" aria-expanded="false" aria-controls="faq-p-2" style="width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 28px 8px; background: none; border: none; cursor: pointer; text-align: left; font-family: 'Sora', system-ui, sans-serif; font-size: 21px; font-weight: 700; color: #111118"><span>Já faço follow-up e o cliente não responde.</span><span data-faq-icon style="font-family: 'Inter', sans-serif; font-size: 30px; color: #8a5d0f">+</span></button>
-<p id="faq-p-2" data-faq-panel="2" style="padding: 0 8px 28px; font-size: 18px; color: #5f5848" hidden>Mensagens como “conseguiu analisar?” devolvem toda a decisão para o cliente. O método ensina a terminar a conversa com um próximo passo.</p>
+<button class="faq" type="button" data-faq="3" aria-expanded="false" aria-controls="faq-p-3" style="width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 18px 8px; background: none; border: none; cursor: pointer; text-align: left; font-family: 'Sora', system-ui, sans-serif; font-size: 19px; font-weight: 700; color: #111118"><span>Não quero parecer chato.</span><span data-faq-icon style="font-family: 'Inter', sans-serif; font-size: 30px; color: #8a5d0f">+</span></button>
+<p id="faq-p-3" data-faq-panel="3" style="padding: 0 8px 20px; font-size: 17px; color: #5f5848" hidden>Presença é continuar na conversa durante a decisão, sem desaparecer e sem perseguir. É o “sem vergonha” do nome: você sabe o que está fazendo e por quê.</p>
 </div>
 
 <div style="border-bottom: 1px solid #cfcac0">
-<button class="faq" type="button" data-faq="3" aria-expanded="false" aria-controls="faq-p-3" style="width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 28px 8px; background: none; border: none; cursor: pointer; text-align: left; font-family: 'Sora', system-ui, sans-serif; font-size: 21px; font-weight: 700; color: #111118"><span>Não quero parecer chato.</span><span data-faq-icon style="font-family: 'Inter', sans-serif; font-size: 30px; color: #8a5d0f">+</span></button>
-<p id="faq-p-3" data-faq-panel="3" style="padding: 0 8px 28px; font-size: 18px; color: #5f5848" hidden>Presença é continuar na conversa durante a decisão, sem desaparecer e sem perseguir. É o “sem vergonha” do nome: você sabe o que está fazendo e por quê.</p>
+<button class="faq" type="button" data-faq="4" aria-expanded="false" aria-controls="faq-p-4" style="width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 18px 8px; background: none; border: none; cursor: pointer; text-align: left; font-family: 'Sora', system-ui, sans-serif; font-size: 19px; font-weight: 700; color: #111118"><span>Serve para o meu tipo de negócio?</span><span data-faq-icon style="font-family: 'Inter', sans-serif; font-size: 30px; color: #8a5d0f">+</span></button>
+<p id="faq-p-4" data-faq-panel="4" style="padding: 0 8px 20px; font-size: 17px; color: #5f5848" hidden>Serve para quem vende conversando com o cliente, seja pelo WhatsApp, pelo Instagram ou por outro canal de atendimento. Se existe um momento em que o cliente pede o preço, recebe a proposta e deixa de responder, o método se aplica ao seu negócio.</p>
 </div>
 
 <div style="border-bottom: 1px solid #cfcac0">
-<button class="faq" type="button" data-faq="4" aria-expanded="false" aria-controls="faq-p-4" style="width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 28px 8px; background: none; border: none; cursor: pointer; text-align: left; font-family: 'Sora', system-ui, sans-serif; font-size: 21px; font-weight: 700; color: #111118"><span>Serve para o meu tipo de negócio?</span><span data-faq-icon style="font-family: 'Inter', sans-serif; font-size: 30px; color: #8a5d0f">+</span></button>
-<p id="faq-p-4" data-faq-panel="4" style="padding: 0 8px 28px; font-size: 18px; color: #5f5848" hidden>Serve para quem vende conversando com o cliente, seja pelo WhatsApp, pelo Instagram ou por outro canal de atendimento. Se existe um momento em que o cliente pede o preço, recebe a proposta e deixa de responder, o método se aplica ao seu negócio.</p>
+<button class="faq" type="button" data-faq="5" aria-expanded="false" aria-controls="faq-p-5" style="width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 18px 8px; background: none; border: none; cursor: pointer; text-align: left; font-family: 'Sora', system-ui, sans-serif; font-size: 19px; font-weight: 700; color: #111118"><span>Preciso ter experiência com vendas?</span><span data-faq-icon style="font-family: 'Inter', sans-serif; font-size: 30px; color: #8a5d0f">+</span></button>
+<p id="faq-p-5" data-faq-panel="5" style="padding: 0 8px 20px; font-size: 17px; color: #5f5848" hidden>Não. O método organiza a negociação em passos simples, os 5Ps, então serve tanto para quem está começando quanto para quem já vende e quer perder menos oportunidades.</p>
 </div>
 
 <div style="border-bottom: 1px solid #cfcac0">
-<button class="faq" type="button" data-faq="5" aria-expanded="false" aria-controls="faq-p-5" style="width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 28px 8px; background: none; border: none; cursor: pointer; text-align: left; font-family: 'Sora', system-ui, sans-serif; font-size: 21px; font-weight: 700; color: #111118"><span>Preciso ter experiência com vendas?</span><span data-faq-icon style="font-family: 'Inter', sans-serif; font-size: 30px; color: #8a5d0f">+</span></button>
-<p id="faq-p-5" data-faq-panel="5" style="padding: 0 8px 28px; font-size: 18px; color: #5f5848" hidden>Não. O método organiza a negociação em passos simples, os 5Ps, então serve tanto para quem está começando quanto para quem já vende e quer perder menos oportunidades.</p>
+<button class="faq" type="button" data-faq="6" aria-expanded="false" aria-controls="faq-p-6" style="width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 18px 8px; background: none; border: none; cursor: pointer; text-align: left; font-family: 'Sora', system-ui, sans-serif; font-size: 19px; font-weight: 700; color: #111118"><span>Todo follow-up vai virar venda?</span><span data-faq-icon style="font-family: 'Inter', sans-serif; font-size: 30px; color: #8a5d0f">+</span></button>
+<p id="faq-p-6" data-faq-panel="6" style="padding: 0 8px 20px; font-size: 17px; color: #5f5848" hidden>Não. Algumas negociações deixam de fazer sentido, e saber reconhecer isso faz parte do método. O que muda é que você para de perder oportunidades que ainda poderiam avançar.</p>
 </div>
 
 <div style="border-bottom: 1px solid #cfcac0">
-<button class="faq" type="button" data-faq="6" aria-expanded="false" aria-controls="faq-p-6" style="width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 28px 8px; background: none; border: none; cursor: pointer; text-align: left; font-family: 'Sora', system-ui, sans-serif; font-size: 21px; font-weight: 700; color: #111118"><span>Todo follow-up vai virar venda?</span><span data-faq-icon style="font-family: 'Inter', sans-serif; font-size: 30px; color: #8a5d0f">+</span></button>
-<p id="faq-p-6" data-faq-panel="6" style="padding: 0 8px 28px; font-size: 18px; color: #5f5848" hidden>Não. Algumas negociações deixam de fazer sentido, e saber reconhecer isso faz parte do método. O que muda é que você para de perder oportunidades que ainda poderiam avançar.</p>
+<button class="faq" type="button" data-faq="7" aria-expanded="false" aria-controls="faq-p-7" style="width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 18px 8px; background: none; border: none; cursor: pointer; text-align: left; font-family: 'Sora', system-ui, sans-serif; font-size: 19px; font-weight: 700; color: #111118"><span>Como eu acesso o treinamento?</span><span data-faq-icon style="font-family: 'Inter', sans-serif; font-size: 30px; color: #8a5d0f">+</span></button>
+<p id="faq-p-7" data-faq-panel="7" style="padding: 0 8px 20px; font-size: 17px; color: #5f5848" hidden>Depois da confirmação do pagamento, você recebe no e-mail cadastrado na compra as instruções para acessar o treinamento e a aula bônus.</p>
 </div>
 
 <div style="border-bottom: 1px solid #cfcac0">
-<button class="faq" type="button" data-faq="7" aria-expanded="false" aria-controls="faq-p-7" style="width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 28px 8px; background: none; border: none; cursor: pointer; text-align: left; font-family: 'Sora', system-ui, sans-serif; font-size: 21px; font-weight: 700; color: #111118"><span>Como eu acesso o treinamento?</span><span data-faq-icon style="font-family: 'Inter', sans-serif; font-size: 30px; color: #8a5d0f">+</span></button>
-<p id="faq-p-7" data-faq-panel="7" style="padding: 0 8px 28px; font-size: 18px; color: #5f5848" hidden>Depois da confirmação do pagamento, você recebe no e-mail cadastrado na compra as instruções para acessar o treinamento e a aula bônus.</p>
-</div>
-
-<div style="border-bottom: 1px solid #cfcac0">
-<button class="faq" type="button" data-faq="8" aria-expanded="false" aria-controls="faq-p-8" style="width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 28px 8px; background: none; border: none; cursor: pointer; text-align: left; font-family: 'Sora', system-ui, sans-serif; font-size: 21px; font-weight: 700; color: #111118"><span>Tenho suporte se ficar com dúvida?</span><span data-faq-icon style="font-family: 'Inter', sans-serif; font-size: 30px; color: #8a5d0f">+</span></button>
-<p id="faq-p-8" data-faq-panel="8" style="padding: 0 8px 28px; font-size: 18px; color: #5f5848" hidden>Se tiver dúvida sobre a compra ou o acesso, é só entrar em contato com a equipe. E, se o treinamento não fizer sentido para você, vale a garantia de 7 dias.</p>
+<button class="faq" type="button" data-faq="8" aria-expanded="false" aria-controls="faq-p-8" style="width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 18px 8px; background: none; border: none; cursor: pointer; text-align: left; font-family: 'Sora', system-ui, sans-serif; font-size: 19px; font-weight: 700; color: #111118"><span>Tenho suporte se ficar com dúvida?</span><span data-faq-icon style="font-family: 'Inter', sans-serif; font-size: 30px; color: #8a5d0f">+</span></button>
+<p id="faq-p-8" data-faq-panel="8" style="padding: 0 8px 20px; font-size: 17px; color: #5f5848" hidden>Se tiver dúvida sobre a compra ou o acesso, é só entrar em contato com a equipe. E, se o treinamento não fizer sentido para você, vale a garantia de 7 dias.</p>
 </div>
 
 </div>
@@ -746,7 +659,7 @@ src="https://www.facebook.com/tr?id=846085805228019&ev=PageView&noscript=1"/></n
 
 <!-- CTA FINAL (PRETO) -->
 <div id="checkout" style="background: radial-gradient(ellipse 80% 80% at 50% 100%, rgba(240, 190, 60, 0.22), rgba(13, 13, 13, 0) 70%), #0d0d0d; color: #f0f0f0">
-<div class="final-wrap" style="max-width: 860px; margin: 0 auto; padding: 96px 24px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; gap: 24px; text-align: center">
+<div class="final-wrap" style="max-width: 860px; margin: 0 auto; padding: 64px 24px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; gap: 24px; text-align: center">
 <div style="padding: 8px 16px; border: 1px solid rgba(240, 190, 60, 0.45); background: rgba(240, 190, 60, 0.08); border-radius: 999px; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #f0be3c">Black Friday · Dê o próximo passo</div>
 <div style="display: flex; flex-direction: column; align-items: center; gap: 16px">
 <h2 class="final-h" style="font-size: clamp(28px, 4vw, 52px); line-height: 1.1; color: #ffffff; max-width: 780px; text-wrap: balance">Você já tem oportunidades de venda. <span style="color: #f0be3c">Aprenda a transformá-las em faturamento.</span></h2>
@@ -859,70 +772,6 @@ src="https://www.facebook.com/tr?id=846085805228019&ev=PageView&noscript=1"/></n
     });
   }
 
-  // VSL: capa com play. O player do YouTube é carregado em segundo plano assim que a página
-  // termina de abrir (fica escondido atrás da capa), então ao clicar ele já está pronto.
-  var YT_ID = 'FxISTWj7oVw';
-  var facade = document.getElementById('vsl-facade'), stage = document.getElementById('vsl-stage');
-  if (facade && stage) {
-    var fr = null, ready = false, wanted = false, revealed = false, hs = null, tmo = null, wait = null;
-    function send(obj) { try { fr.contentWindow.postMessage(JSON.stringify(obj), '*'); } catch (e) {} }
-    function showWait(txt) {
-      if (!wait) {
-        wait = document.createElement('span');
-        wait.style.cssText = 'position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:rgba(13,13,13,.55);color:#f0be3c;font-size:15px;font-weight:700;letter-spacing:.04em';
-        wait.innerHTML = '<span class="vsl-spin" style="width:46px;height:46px;border-radius:999px;border:5px solid rgba(240,190,60,.28);border-top-color:#f0be3c;animation:vsl-spin .8s linear infinite"></span><span class="vsl-wait-t"></span>';
-        facade.appendChild(wait);
-        var pl = facade.querySelector('.vsl-play'); if (pl) pl.style.visibility = 'hidden';
-      }
-      wait.querySelector('.vsl-wait-t').textContent = txt;
-    }
-    function reveal() {
-      if (revealed || !fr) return; revealed = true;
-      fr.style.opacity = '1'; fr.style.pointerEvents = 'auto';
-      facade.style.display = 'none';
-      send({ event: 'command', func: 'playVideo', args: '' });
-    }
-    function failed() {
-      if (fr && fr.parentNode) fr.parentNode.removeChild(fr);
-      fr = null; clearInterval(hs);
-      facade.setAttribute('data-fallback', '1');
-      if (wanted) showWait('Toque de novo para abrir no YouTube');
-    }
-    function onMsg(ev) {
-      if (!fr || ev.source !== fr.contentWindow || ready) return;
-      ready = true; clearInterval(hs); clearTimeout(tmo);
-      if (wanted) reveal();
-    }
-    function build() {
-      if (fr || facade.getAttribute('data-fallback')) return;
-      fr = document.createElement('iframe');
-      fr.src = 'https://www.youtube-nocookie.com/embed/' + YT_ID + '?rel=0&modestbranding=1&playsinline=1&enablejsapi=1';
-      fr.title = 'Vídeo do Filipe Elias sobre o Follow-Up Sem Vergonha';
-      fr.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
-      fr.setAttribute('allowfullscreen', '');
-      fr.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:0;background:#000;opacity:0;pointer-events:none';
-      stage.insertBefore(fr, facade);
-      window.addEventListener('message', onMsg);
-      hs = setInterval(function () { send({ event: 'listening', id: 'vsl', channel: 'widget' }); }, 300);
-      tmo = setTimeout(function () { if (!ready) failed(); }, 12000);
-    }
-    facade.addEventListener('click', function (e) {
-      if (facade.getAttribute('data-fallback')) return; // se o player não abrir, o toque abre o YouTube em outra aba
-      e.preventDefault();
-      wanted = true;
-      showWait('Carregando o vídeo…');
-      build();
-      if (ready) reveal();
-    });
-    // aquece o player só depois da 1ª interação (toque, rolagem, teclado ou mouse sobre a capa) ou 8 s após o load,
-    // para não pesar na abertura da página; o clique continua funcionando mesmo sem aquecimento
-    var warmed = false, evs = ['pointerdown', 'touchstart', 'keydown', 'scroll', 'wheel'];
-    function off() { evs.forEach(function (n) { window.removeEventListener(n, warmOnce, true); }); }
-    function warmOnce() { if (warmed) return; warmed = true; off(); build(); }
-    evs.forEach(function (n) { window.addEventListener(n, warmOnce, { capture: true, passive: true }); });
-    facade.addEventListener('mouseenter', warmOnce, { once: true });
-    window.addEventListener('load', function () { setTimeout(warmOnce, 8000); });
-  }
 })();
 </script>
 </body>
